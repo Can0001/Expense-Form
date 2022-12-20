@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Core.Entities.Concrete
 {
-    public class UserOperationClaim
+    public class UserOperationClaim:IEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public int Id { get; set; }
-        public int UserId { get; set; }
+        public string Id { get; set; }
+        public string UserId { get; set; }
         public string OperationClaimId { get; set; }
 
     }
