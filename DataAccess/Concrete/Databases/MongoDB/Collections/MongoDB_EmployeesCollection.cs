@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.Databases.MongoDB.Collections
 {
-    public class MongoDB_ReceiptCollection : ICollection
+    public class MongoDB_EmployeesCollection : ICollection
     {
-        public string CollectionName { get ; set ; }
-
-        public MongoDB_ReceiptCollection()
+        public string CollectionName { get; set; }
+        public MongoDB_EmployeesCollection()
         {
-            CollectionName = "Receipts";
+            CollectionName = "Employees";
         }
     }
 }
