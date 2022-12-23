@@ -4,6 +4,7 @@ using Business.Abstract;
 using Business.Concrete;
 using Castle.DynamicProxy;
 using Core.Utilities.Interceptors;
+using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Databases.MongoDB;
 using System;
@@ -20,6 +21,14 @@ namespace Business.DependencyResolvers.Autofac
         {
             builder.RegisterType<UserManager>().As<IUserService>().SingleInstance();
             builder.RegisterType<MongoDB_UserDal>().As<IUserDal>().SingleInstance();
+
+            builder.RegisterType<EmployeeManager>().As<IEmployeeService>().SingleInstance();
+            builder.RegisterType<MongoDB_EmployeeDal>().As<IEmployeeDal>().SingleInstance();
+
+            
+           builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
+           builder.RegisterType<JWTHelper>().As<ITokenHelper>();
+
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();
 
