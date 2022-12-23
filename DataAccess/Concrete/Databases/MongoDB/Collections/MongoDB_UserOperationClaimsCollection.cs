@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.Databases.MongoDB.Collections
 {
-    public class MongoDB_UserOperationClaimCollection : ICollection
+    public class MongoDB_UserOperationClaimsCollection : ICollection
     {
         public string CollectionName { get; set; }
-        public MongoDB_UserOperationClaimCollection()
+        public MongoDB_UserOperationClaimsCollection()
         {
             CollectionName = "UserOperationClaims";
         }
