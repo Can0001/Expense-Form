@@ -26,5 +26,13 @@ namespace Business.Constants
         public static string SuccessfulLogin= "Başarılı Giriş";
         public static string UserRegistered="Kayıt Olundu";
         public static string UserAlreadyExists = "Kullanıcı Mevcut";
+
+
+        //Employee
+        public static string ThereIsStaff = "Personel Var";
+        public static string StaffAdded = "Pesonel Eklendi";
+        public static string StaffDeleted = "Personel Sikindi";
+        public static string StaffUpdated = "Personel Güncellendi";
+        public static string StaffListed = " Personeller Listelendi";
     }
 }
