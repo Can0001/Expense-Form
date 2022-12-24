@@ -14,8 +14,8 @@ namespace Entities.Concrete
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
-        public int DocumentDate { get; set; }
-        public int VocherAmount { get; set; }
+        public string DocumentDate { get; set; }
+        public double VocherAmount { get; set; }
         public string VocherStatement { get; set; }
         public string VocherImage { get; set; }
         public string VocherIssuingCompanyInformation { get; set; }

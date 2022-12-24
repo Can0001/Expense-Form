@@ -34,5 +34,13 @@ namespace Business.Constants
         public static string StaffDeleted = "Personel Sikindi";
         public static string StaffUpdated = "Personel Güncellendi";
         public static string StaffListed = " Personeller Listelendi";
+
+
+        //Receipt
+        public static string ReceiptNoAlreadyExists="Fiş Yok Zaten Mevcut";
+        public static string ReceiptAdded="Fiş Eklendi";
+        public static string ReceiptDeleted = "Fiş Silindi";
+        public static string ReceiptListed="Fiş Listelendi";
+        public static string ReceiptUpdated="Fiş Güncellendi";
     }
 }
