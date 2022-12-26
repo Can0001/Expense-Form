@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -17,47 +18,50 @@ namespace Business.Concrete
 
         public IResult Add(Voucher voucher)
         {
-            throw new NotImplementedException();
+            _voucherDal.Add(voucher);
+            return new SuccessResult(Messages.VoucherAdded);
         }
 
         public IResult Delete(Voucher voucher)
         {
-            throw new NotImplementedException();
+            _voucherDal.Delete(voucher);
+            return new SuccessResult(Messages.VoucherDeleted);
         }
 
         public IDataResult<List<Voucher>> GetAdress(string adress)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Voucher>>(_voucherDal.GetAll(v => v.Address == adress), Messages.VoucherListed);
         }
 
         public IDataResult<List<Voucher>> GetAll()
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Voucher>>(_voucherDal.GetAll(), Messages.VoucherListed);
         }
 
         public IDataResult<List<Voucher>> GetAuthorizedNameSurname(string name)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Voucher>>(_voucherDal.GetAll(v => v.AuthorizedNameSurname == name), Messages.VoucherListed);
         }
 
         public IDataResult<List<Voucher>> GetByDate(string min, string max)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Voucher>>(_voucherDal.GetAll(r => Convert.ToDateTime(r.DocumentDate) > Convert.ToDateTime(min) && Convert.ToDateTime(r.DocumentDate) < Convert.ToDateTime(max)), Messages.VoucherListed);
         }
 
         public IDataResult<Voucher> GetById(string id)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<Voucher>(_voucherDal.Get(v => v.Id == id), Messages.VoucherListed);
         }
 
         public IDataResult<List<Voucher>> GetCompanyName(string companyName)
         {
-            throw new NotImplementedException();
+            return new SuccessDataResult<List<Voucher>>(_voucherDal.GetAll(v => v.CompanyName == companyName), Messages.VoucherListed);
         }
 
         public IResult Update(Voucher voucher)
         {
-            throw new NotImplementedException();
+            _voucherDal.Update(voucher);
+            return new SuccessResult(Messages.VoucherUpdated);
         }
 
 

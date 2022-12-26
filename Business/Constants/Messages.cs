@@ -42,5 +42,10 @@ namespace Business.Constants
         public static string ReceiptDeleted = "Fiş Silindi";
         public static string ReceiptListed="Fiş Listelendi";
         public static string ReceiptUpdated="Fiş Güncellendi";
+        public static string VoucherAdded = "Makbuz Eklendi";
+        public static string VoucherDeleted = "Makbuz Silindi";
+        public static string VoucherListed = "Makbuz Listelendi";
+        public static string VoucherUpdated = "Makbuz Güncellendi";
+
     }
 }

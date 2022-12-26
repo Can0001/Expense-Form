@@ -21,11 +21,6 @@ namespace Business.Concrete
         }
         public IResult Add(Employee employee)
         {
-            IResult result = BusinessRules.Run(CheckIfDepartmentEmployee(employee.Department,employee.FirstName,employee.LastName));
-            if (result != null)
-            {
-                return result;
-            }
             _employeeDal.Add(employee);
             return new SuccessResult(Messages.StaffAdded);
         }
@@ -55,16 +50,6 @@ namespace Business.Concrete
         {
             _employeeDal.Update(employee);
             return new SuccessResult(Messages.StaffUpdated);
-        }
-
-        private IResult CheckIfDepartmentEmployee(string department, string firstName,string lastName)
-        {
-            var result = _employeeDal.GetAll(e=> e.Department==department && e.FirstName==firstName && e.LastName == lastName).Any();
-            if (result)
-            {
-                return new ErrorResult(Messages.ThereIsStaff);
-            }
-            return new SuccessResult();
         }
     }
 }
