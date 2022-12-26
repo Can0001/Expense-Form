@@ -15,10 +15,10 @@ namespace Entities.Concrete
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
         public string DocumentDate { get; set; }
-        public double VocherAmount { get; set; }
-        public string VocherStatement { get; set; }
-        public string VocherImage { get; set; }
-        public string VocherIssuingCompanyInformation { get; set; }
+        public double VoucherAmount { get; set; }
+        public string VoucherDescription { get; set; }
+        public string VoucherImage { get; set; }
+        public string VoucherIssuingCompanyInformation { get; set; }
         public string CompanyName { get; set; }
         public string AuthorizedNameSurname { get; set; }
         public string Address { get; set; }

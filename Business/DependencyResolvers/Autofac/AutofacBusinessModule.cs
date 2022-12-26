@@ -7,6 +7,7 @@ using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Databases.MongoDB;
+using DataAccess.Concrete.Databases.MongoDB.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,9 @@ namespace Business.DependencyResolvers.Autofac
 
             builder.RegisterType<ReceiptManager>().As<IReceiptService>().SingleInstance();
             builder.RegisterType<MongoDB_ReceiptDal>().As<IReceiptDal>().SingleInstance();
+
+            builder.RegisterType<VoucherManager>().As<IVoucherService>().SingleInstance();
+            builder.RegisterType<MongoDB_VoucherDal>().As<IVoucherDal>().SingleInstance();
 
             
            builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
