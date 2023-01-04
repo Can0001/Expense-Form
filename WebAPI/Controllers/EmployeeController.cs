@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(Employee employee)
+        public IActionResult Add(EmployeeEvolved employee)
         {
             var result= _employeeService.Add(employee);
             if (result.Success)
@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Employee employee) 
+        public IActionResult Delete(EmployeeEvolved employee) 
         {
             var result=_employeeService.Delete(employee);
             if (result.Success)
@@ -39,7 +39,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Employee employee)
+        public IActionResult Update(EmployeeEvolved employee)
         {
             var result=_employeeService.Update(employee);
             if (result.Success)

@@ -2,6 +2,8 @@
 using Core.Entities.Concrete;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Databases.MongoDB.Collections;
+using Entities.Concrete;
+using System.Collections.Generic;
 
 namespace DataAccess.Concrete.Databases.MongoDB
 {
