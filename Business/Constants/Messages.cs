@@ -46,6 +46,18 @@ namespace Business.Constants
         public static string VoucherDeleted = "Makbuz Silindi";
         public static string VoucherListed = "Makbuz Listelendi";
         public static string VoucherUpdated = "Makbuz Güncellendi";
+
+
+        //----------
         public static string Successful = "Başarılı";
+
+
+
+        //report
+        public static string ReportAdded="Rapor Eklendi";
+        public static string ReportDeleted="Rapor Silindi";
+        public static string ReportUpdated="Rapor Silindi";
+        public static string ReportListed = "Rapor Listelendi";
+
     }
 }

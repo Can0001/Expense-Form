@@ -11,39 +11,17 @@ namespace WebAPI.Controllers
     [ApiController]
     public class EmployeeController : ControllerBase
     {
-        IEmployeeService _employeeService;
+        private readonly IEmployeeService _employeeService;
 
         public EmployeeController(IEmployeeService employeeService)
         {
             _employeeService = employeeService;
         }
 
-        [HttpPost("add")]
-        public IActionResult Add(Employee employee)
-        {
-            var result= _employeeService.Add(employee);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
         [HttpPost("delete")]
-        public IActionResult Delete(Employee employee) 
+        public IActionResult Delete(string id)
         {
-            var result=_employeeService.Delete(employee);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpPost("update")]
-        public IActionResult Update(Employee employee)
-        {
-            var result=_employeeService.Update(employee);
+            var result= _employeeService.Delete(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -83,6 +61,9 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+
+
 
 
     }

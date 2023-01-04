@@ -22,8 +22,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.VoucherAdded);
         }
 
-        public IResult Delete(Voucher voucher)
+        public IResult Delete(string id)
         {
+            var voucher= _voucherDal.Get(v=>v.Id==id);
             _voucherDal.Delete(voucher);
             return new SuccessResult(Messages.VoucherDeleted);
         }

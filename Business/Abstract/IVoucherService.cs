@@ -11,7 +11,7 @@ namespace Business.Abstract
     public interface IVoucherService
     {
         IResult Add(Voucher voucher);
-        IResult Delete(Voucher voucher);
+        IResult Delete(string id);
         IResult Update(Voucher voucher);
         IDataResult<List<Voucher>> GetAll();
         IDataResult<Voucher> GetById(string id);

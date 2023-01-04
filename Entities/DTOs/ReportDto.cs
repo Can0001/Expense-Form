@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace Entities.DTOs
 {
-    public class EmployeeForLoginDto:IDto
+    public class ReportDto:IDto
     {
-        public string Email { get; set; }
-        public string Password { get; set; }
-
+        public DateTime Daterange { get; set; }
+        public string Person { get; set; }
+        public string PlugType { get; set; }
     }
 }

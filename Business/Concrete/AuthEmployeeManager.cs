@@ -42,7 +42,7 @@ namespace Business.Concrete
 
         public IDataResult<Employee> Login(EmployeeForLoginDto employeeForLoginDto)
         {
-            var employeeToCheck = _employeeService.GetByMail(employeeForLoginDto.EMail);
+            var employeeToCheck = _employeeService.GetByMail(employeeForLoginDto.Email);
             if (employeeToCheck == null)
             {
                 return new ErrorDataResult<Employee>(Messages.UserNotFound);
@@ -56,7 +56,19 @@ namespace Business.Concrete
 
         public IDataResult<Employee> Register(EmployeeForRegisterDto employeeForRegisterDto, string password)
         {
-            throw new NotImplementedException();
+            byte[] passwordHash, passwordSalt;
+            HashingHelper.CreatePasswordHash(password,out passwordHash, out passwordSalt);
+            var employee = new Employee()
+            {
+                Email = employeeForRegisterDto.Email,
+                FirstName = employeeForRegisterDto.FirstName,
+                LastName = employeeForRegisterDto.LastName,
+                PasswordHash = passwordHash,
+                Status = true,
+                PasswordSalt = passwordSalt
+            };
+            _employeeService.Add(employee);
+            return new SuccessDataResult<Employee>(employee,Messages.StaffAdded);
         }
     }
 }

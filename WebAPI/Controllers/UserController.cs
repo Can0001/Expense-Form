@@ -9,7 +9,7 @@ namespace WebAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        IUserService _userService;
+        private readonly IUserService _userService;
         public UserController(IUserService userService)
         {
             _userService = userService;
@@ -41,39 +41,6 @@ namespace WebAPI.Controllers
         public IActionResult GetByMail(string mail) 
         {
             var result = _userService.GetByMail(mail);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpPost("add")]
-        public IActionResult Add(User user)
-        {
-            var result = _userService.Add(user);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpPost("delete")]
-        public IActionResult Delete(User User)
-        {
-            var result = _userService.Delete(User);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpPost("update")]
-        public IActionResult Update(User User)
-        {
-            var result = _userService.Update(User);
             if (result.Success)
             {
                 return Ok(result);

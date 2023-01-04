@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
         [HttpPost("register")]
         public ActionResult Register(EmployeeForRegisterDto employeeForRegisterDto)
         {
-            var employeeExist = _authService.EmployeeExists(employeeForRegisterDto.EMail);
+            var employeeExist = _authService.EmployeeExists(employeeForRegisterDto.Email);
             if (!employeeExist.Success)
             {
                 return BadRequest(employeeExist.Message);

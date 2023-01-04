@@ -12,8 +12,9 @@ namespace Business.Abstract
     public interface IEmployeeService
     {
         IResult Add(Employee employee);
-        IResult Delete(Employee employee);
+        IResult Delete(string id);
         IResult Update(Employee employee);
+        IResult UpdatePassword(Employee employee);
         IDataResult<List<Employee>> GetAll();
         IDataResult<Employee> GetById(string id);
         IDataResult<Employee> GetByDepartment(string depart);

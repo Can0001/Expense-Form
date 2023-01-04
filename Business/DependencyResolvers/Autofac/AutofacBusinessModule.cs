@@ -8,7 +8,6 @@ using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
 using DataAccess.Concrete.Databases.MongoDB;
-using DataAccess.Concrete.Databases.MongoDB.Collections;
 using System;
 using System.Collections.Generic;
 using System.Linq;

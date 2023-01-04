@@ -20,11 +20,11 @@ namespace Business.Concrete
 
         public IResult Add(Receipt receipt)
         {
-            IResult result = BusinessRules.Run(CheckIdReceiptNoExists(receipt.ReceiptNo));
-            if (result != null)
-            {
-                return result;
-            }
+            //IResult result = BusinessRules.Run(CheckIdReceiptNoExists(receipt.ReceiptNo));
+            //if (result != null)
+            //{
+            //    return result;
+            //}
             _receiptDal.Add(receipt);
             return new SuccessResult(Messages.ReceiptAdded);
         }

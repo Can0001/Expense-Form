@@ -8,22 +8,22 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ReceiptController : ControllerBase
+    public class ReportController : ControllerBase
     {
-        private readonly IReceiptService _receiptService;
-
+        private readonly IReportService _reportService;
         private readonly IMapper _mapper;
-        public ReceiptController(IReceiptService receiptService, IMapper mapper)
+
+        public ReportController(IReportService reportService, IMapper mapper)
         {
-            _receiptService = receiptService;
+            _reportService = reportService;
             _mapper = mapper;
         }
 
         [HttpPost("add")]
-        public IActionResult Add(ReceiptsDto receipt)
+        public IActionResult Add(ReportDto report)
         {
-            var _mappedReceipt = _mapper.Map<Receipt>(receipt);
-            var result = _receiptService.Add(_mappedReceipt);
+            var _mappeedReport = _mapper.Map<Report>(report);
+            var result = _reportService.Add(_mappeedReport);
             if (result.Success)
             {
                 return Ok(result);
@@ -32,9 +32,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Receipt receipt)
+        public IActionResult Delete(string id)
         {
-            var result = _receiptService.Delete(receipt);
+            var result = _reportService.Delete(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -43,9 +43,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(Receipt receipt)
+        public IActionResult Update(Report report)
         {
-            var result = _receiptService.Update(receipt);
+            var result = _reportService.Update(report);
             if (result.Success)
             {
                 return Ok(result);
@@ -56,7 +56,7 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
-            var result = _receiptService.GetAll();
+            var result = _reportService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -67,7 +67,7 @@ namespace WebAPI.Controllers
         [HttpGet("getbyid")]
         public IActionResult GetById(string id)
         {
-            var result = _receiptService.GetById(id);
+            var result = _reportService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -75,10 +75,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyreceipttype")]
-        public IActionResult GetByReceiptType(string type)
+        [HttpGet("getbyplugtype")]
+        public IActionResult GetByPlugType(string plugType)
         {
-            var result = _receiptService.GetByReceiptType(type);
+            var result = _reportService.GetByPlugType(plugType);
             if (result.Success)
             {
                 return Ok(result);
@@ -86,10 +86,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyreceiptıd")]
-        public IActionResult GetByReceiptId(string receiptnoid)
+        [HttpGet("getbydaterange")]
+        public IActionResult GetByDateRange(string min, string max)
         {
-            var result = _receiptService.GetByReceiptId(receiptnoid);
+            var result = _reportService.GetByDateRange(min, max);
             if (result.Success)
             {
                 return Ok(result);
@@ -97,19 +97,16 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbydate")]
-        public IActionResult GetByDate(string min, string max)
+        [HttpGet("getbyperson")]
+        public IActionResult GetByPerson(string person)
         {
-            var result = _receiptService.GetByDate(min, max);
+            var result = _reportService.GetByPerson(person);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-
-
-
 
     }
 }

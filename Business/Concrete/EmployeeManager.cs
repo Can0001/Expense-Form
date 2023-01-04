@@ -26,8 +26,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.StaffAdded);
         }
 
-        public IResult Delete(Employee employee)
+        public IResult Delete(string id)
         {
+            var employee=_employeeDal.Get(e=>e.Id==id);
             _employeeDal.Delete(employee);
             return new SuccessResult(Messages.StaffDeleted);
         }
@@ -58,6 +59,12 @@ namespace Business.Concrete
         }
 
         public IResult Update(Employee employee)
+        {
+            _employeeDal.Update(employee);
+            return new SuccessResult(Messages.StaffUpdated);
+        }
+
+        public IResult UpdatePassword(Employee employee)
         {
             _employeeDal.Update(employee);
             return new SuccessResult(Messages.StaffUpdated);
