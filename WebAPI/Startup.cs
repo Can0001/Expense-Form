@@ -20,6 +20,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Utilities.Security.JWT;
 using Core.Extensions;
+using System.Reflection;
 
 namespace WebAPI
 {
@@ -39,6 +40,8 @@ namespace WebAPI
             services.AddControllers();
             services.AddMemoryCache();
             services.AddCors();
+
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 

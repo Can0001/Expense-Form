@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities.Concrete
 {
-    public class User : IEntity
+    public class User : IEntity, ITokenEntity
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

@@ -10,7 +10,7 @@ using System.Linq;
 
 namespace DataAccess.Concrete.Databases.MongoDB
 {
-    public class MongoDB_EmployeeDal : MongoDB_RepositoryBase<EmployeeEvolved, MongoDB_Context<EmployeeEvolved, MongoDB_EmployeesCollection>>, IEmployeeDal
+    public class MongoDB_EmployeeDal : MongoDB_RepositoryBase<Employee, MongoDB_Context<Employee, MongoDB_EmployeesCollection>>, IEmployeeDal
     {
         public List<OperationClaim> GetClaims(Employee employee)
         {
@@ -62,7 +62,7 @@ namespace DataAccess.Concrete.Databases.MongoDB
                 EmployeeEvolved employeeEvolved= new EmployeeEvolved 
                 { 
                     Id=employee.Id,
-                    EMail=employee.EMail,
+                    EMail=employee.Email,
                     FirstName=employee.FirstName,
                     LastName=employee.LastName,
                     Department=employee.Department,

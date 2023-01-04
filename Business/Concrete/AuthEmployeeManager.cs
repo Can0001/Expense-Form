@@ -16,19 +16,18 @@ namespace Business.Concrete
     public class AuthEmployeeManager : IAuthEmployeeService
     {
         private readonly IEmployeeService _employeeService;
-        private readonly IEmployeeTokenHelper _employeeTokenHelper;
-
-        public AuthEmployeeManager(IEmployeeService employeeService, IEmployeeTokenHelper employeeTokenHelper)
+        private ITokenHelper<Employee> _tokenHelper;
+        public AuthEmployeeManager(IEmployeeService employeeService, ITokenHelper<Employee> tokenHelper)
         {
+            _tokenHelper= tokenHelper;
             _employeeService = employeeService;
-            _employeeTokenHelper = employeeTokenHelper;
         }
 
-        public IDataResult<EmployeeAccessToken> CreateAccessToken(Employee employee)
+        public IDataResult<AccessToken> CreateAccessToken(Employee employee)
         {
             var claims = _employeeService.GetClaims(employee);
-            var accessToken = _employeeTokenHelper.EmployeeCreateToken(employee, claims.Data);
-            return new SuccessDataResult<EmployeeAccessToken>(accessToken);
+            var accessToken = _tokenHelper.CreateToken(employee, claims.Data);
+            return new SuccessDataResult<AccessToken>(accessToken);
         }
 
         public IResult EmployeeExists(string email)
@@ -43,16 +42,16 @@ namespace Business.Concrete
 
         public IDataResult<Employee> Login(EmployeeForLoginDto employeeForLoginDto)
         {
-            //var employeeToCheck=_employeeService.GetByMail(employeeForLoginDto.EMail);
-            //if (employeeToCheck==null)
-            //{
-            //    return new SuccessDataResult<Employee>(Messages.UserNotFound);
-            //}
-            //if (!HashingHelper.VerifyPasswordHash(employeeForLoginDto.Password,employeeToCheck.Data.PasswordSalt)
-            //{
-
-            //}
-            throw new NotImplementedException();
+            var employeeToCheck = _employeeService.GetByMail(employeeForLoginDto.EMail);
+            if (employeeToCheck == null)
+            {
+                return new ErrorDataResult<Employee>(Messages.UserNotFound);
+            }
+            if (!HashingHelper.VerifyPasswordHash(employeeForLoginDto.Password,employeeToCheck.Data.PasswordHash, employeeToCheck.Data.PasswordSalt))
+            {
+                return new ErrorDataResult<Employee>(Messages.PasswordError);
+            }
+            return new SuccessDataResult<Employee>(employeeToCheck.Data);
         }
 
         public IDataResult<Employee> Register(EmployeeForRegisterDto employeeForRegisterDto, string password)

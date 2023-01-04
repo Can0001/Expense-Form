@@ -20,36 +20,36 @@ namespace Business.Concrete
         {
             _employeeDal= employeeDal;
         }
-        public IResult Add(EmployeeEvolved employee)
+        public IResult Add(Employee employee)
         {
             _employeeDal.Add(employee);
             return new SuccessResult(Messages.StaffAdded);
         }
 
-        public IResult Delete(EmployeeEvolved employee)
+        public IResult Delete(Employee employee)
         {
             _employeeDal.Delete(employee);
             return new SuccessResult(Messages.StaffDeleted);
         }
 
-        public IDataResult<List<EmployeeEvolved>> GetAll()
+        public IDataResult<List<Employee>> GetAll()
         {
-            return new SuccessDataResult<List<EmployeeEvolved>>(_employeeDal.GetAll(),Messages.StaffListed);
+            return new SuccessDataResult<List<Employee>>(_employeeDal.GetAll(),Messages.StaffListed);
         }
 
-        public IDataResult<EmployeeEvolved> GetByDepartment(string depart)
+        public IDataResult<Employee> GetByDepartment(string depart)
         {
-            return new SuccessDataResult<EmployeeEvolved>(_employeeDal.Get(e=>e.Department==depart),Messages.StaffListed);
+            return new SuccessDataResult<Employee>(_employeeDal.Get(e=>e.Department==depart),Messages.StaffListed);
         }
 
-        public IDataResult<EmployeeEvolved> GetById(string id)
+        public IDataResult<Employee> GetById(string id)
         {
-            return new SuccessDataResult<EmployeeEvolved>(_employeeDal.Get(e=>e.Id==id),Messages.StaffListed);
+            return new SuccessDataResult<Employee>(_employeeDal.Get(e=>e.Id==id),Messages.StaffListed);
         }
 
-        public IDataResult<EmployeeEvolved> GetByMail(string mail)
+        public IDataResult<Employee> GetByMail(string mail)
         {
-            return new SuccessDataResult<EmployeeEvolved>(_employeeDal.Get(e=>e.EMail==mail),Messages.StaffListed);
+            return new SuccessDataResult<Employee>(_employeeDal.Get(e=>e.Email==mail),Messages.StaffListed);
         }
 
         public IDataResult<List<OperationClaim>> GetClaims(Employee employee)
@@ -57,7 +57,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<OperationClaim>>(_employeeDal.GetClaims(employee));
         }
 
-        public IResult Update(EmployeeEvolved employee)
+        public IResult Update(Employee employee)
         {
             _employeeDal.Update(employee);
             return new SuccessResult(Messages.StaffUpdated);

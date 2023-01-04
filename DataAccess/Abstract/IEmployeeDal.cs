@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Abstract
 {
-    public interface IEmployeeDal : IEntityRepository<EmployeeEvolved>
+    public interface IEmployeeDal : IEntityRepository<Employee>
     {
         List<OperationClaim> GetClaims(Employee employee);
     }

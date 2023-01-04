@@ -3,6 +3,7 @@ using Autofac.Extras.DynamicProxy;
 using Business.Abstract;
 using Business.Concrete;
 using Castle.DynamicProxy;
+using Core.Entities.Concrete;
 using Core.Utilities.Interceptors;
 using Core.Utilities.Security.JWT;
 using DataAccess.Abstract;
@@ -34,7 +35,8 @@ namespace Business.DependencyResolvers.Autofac
 
             
            builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
-           builder.RegisterType<JWTHelper>().As<ITokenHelper>();
+           builder.RegisterType<JWTHelper<User>>().As<ITokenHelper<User>>();
+            builder.RegisterType<JWTHelper<Employee>>().As<ITokenHelper<Employee>>();
 
 
             var assembly = System.Reflection.Assembly.GetExecutingAssembly();

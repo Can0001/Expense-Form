@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Core.Utilities.Security.JWT
 {
-    public interface ITokenHelper
+    public interface ITokenHelper<T>
     {
-        AccessToken CreateToken(User user,List<OperationClaim>operationClaims);
+        AccessToken CreateToken(T user,List<OperationClaim>operationClaims);
     }
 }

@@ -11,7 +11,12 @@ namespace Business.Concrete
     public class AuthManager : IAuthService
     {
         IUserService _userService;
-        ITokenHelper _tokenHelper;
+        ITokenHelper<User> _tokenHelper;
+        public AuthManager(IUserService userService, ITokenHelper<User> tokenHelper )
+        {
+            _tokenHelper= tokenHelper;
+            _userService= userService;  
+        }
         public IDataResult<AccessToken> CreateAccessToken(User user)
         {
             var claims = _userService.GetClaims(user);

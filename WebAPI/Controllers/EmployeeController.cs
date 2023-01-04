@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
+using Core.Entities.Concrete;
 using Entities.Concrete;
+using Entities.DTOs;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,7 +19,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("add")]
-        public IActionResult Add(EmployeeEvolved employee)
+        public IActionResult Add(Employee employee)
         {
             var result= _employeeService.Add(employee);
             if (result.Success)
@@ -28,7 +30,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(EmployeeEvolved employee) 
+        public IActionResult Delete(Employee employee) 
         {
             var result=_employeeService.Delete(employee);
             if (result.Success)
@@ -39,7 +41,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("update")]
-        public IActionResult Update(EmployeeEvolved employee)
+        public IActionResult Update(Employee employee)
         {
             var result=_employeeService.Update(employee);
             if (result.Success)

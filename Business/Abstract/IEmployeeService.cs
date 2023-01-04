@@ -11,13 +11,13 @@ namespace Business.Abstract
 {
     public interface IEmployeeService
     {
-        IResult Add(EmployeeEvolved employee);
-        IResult Delete(EmployeeEvolved employee);
-        IResult Update(EmployeeEvolved employee);
-        IDataResult<List<EmployeeEvolved>> GetAll();
-        IDataResult<EmployeeEvolved> GetById(string id);
-        IDataResult<EmployeeEvolved> GetByDepartment(string depart);
-        IDataResult<EmployeeEvolved> GetByMail(string mail);
+        IResult Add(Employee employee);
+        IResult Delete(Employee employee);
+        IResult Update(Employee employee);
+        IDataResult<List<Employee>> GetAll();
+        IDataResult<Employee> GetById(string id);
+        IDataResult<Employee> GetByDepartment(string depart);
+        IDataResult<Employee> GetByMail(string mail);
         IDataResult<List<OperationClaim>> GetClaims(Employee employee);
 
     }
