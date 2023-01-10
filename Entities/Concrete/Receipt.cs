@@ -14,9 +14,9 @@ namespace Entities.Concrete
         public string TheFirmThatCutsthePlug { get; set; }
         public string Description { get; set; }
         public string ReceiptTour { get; set; }
-        public double VATRate { get; set; }
-        public double TotalFisAmount { get; set; }
-        public double VATAmount { get; set; }
+        public string VATRate { get; set; }
+        public string TotalFisAmount { get; set; }
+        public string VATAmount { get; set; }
         public string ReceiptImage { get; set; }
     }
 }

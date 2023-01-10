@@ -9,7 +9,7 @@ namespace Entities.DTOs
 {
     public class ReportDto:IDto
     {
-        public DateTime Daterange { get; set; }
+        public string Daterange { get; set; }
         public string Person { get; set; }
         public string PlugType { get; set; }
     }

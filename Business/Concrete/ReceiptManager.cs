@@ -4,6 +4,7 @@ using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,6 +60,7 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<List<Receipt>>(_receiptDal.GetAll(r => r.ReceiptTour == type), Messages.ReceiptListed);
         }
+
 
         public IResult Update(Receipt receipt)
         {
