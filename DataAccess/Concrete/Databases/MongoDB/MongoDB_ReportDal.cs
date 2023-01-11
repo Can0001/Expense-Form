@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.Databases.MongoDB
 {
-    public class MongoDB_ReportDal : MongoDB_RepositoryBase<Report, MongoDB_Context<Report,MongoDB_ReceiptsCollection>>, IReportDal
+    public class MongoDB_ReportDal : MongoDB_RepositoryBase<Report, MongoDB_Context<Report,MongoDB_ReportsCollection>>, IReportDal
     {
     }
 }

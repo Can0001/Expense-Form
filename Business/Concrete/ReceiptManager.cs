@@ -38,7 +38,7 @@ namespace Business.Concrete
 
         public IDataResult<List<Receipt>> GetAll()
         {
-            return new SuccessDataResult<List<Receipt>>(_receiptDal.GetAll());
+            return new SuccessDataResult<List<Receipt>>(_receiptDal.GetAll(),Messages.ReceiptListed);
         }
 
         public IDataResult<List<Receipt>> GetByDate(string min, string max)

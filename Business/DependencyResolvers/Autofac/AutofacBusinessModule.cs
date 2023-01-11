@@ -32,6 +32,9 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<VoucherManager>().As<IVoucherService>().SingleInstance();
             builder.RegisterType<MongoDB_VoucherDal>().As<IVoucherDal>().SingleInstance();
 
+            builder.RegisterType<ReportManager>().As<IReportService>().SingleInstance();
+            builder.RegisterType<MongoDB_ReportDal>().As<IReportDal>().SingleInstance();
+
             
            builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
            builder.RegisterType<JWTHelper<User>>().As<ITokenHelper<User>>();
