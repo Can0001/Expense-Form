@@ -56,11 +56,6 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Receipt>>(_receiptDal.GetAll(r => r.ReceiptNo == receiptNoId), Messages.ReceiptListed);
         }
 
-        public IDataResult<List<Receipt>> GetByReceiptType(string type)
-        {
-            return new SuccessDataResult<List<Receipt>>(_receiptDal.GetAll(r => r.ReceiptTour == type), Messages.ReceiptListed);
-        }
-
 
         public IResult Update(Receipt receipt)
         {

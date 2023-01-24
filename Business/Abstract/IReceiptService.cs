@@ -13,7 +13,6 @@ namespace Business.Abstract
         IDataResult<List<Receipt>> GetAll();
         IDataResult<List<Receipt>> GetByDate(string min, string max);
         IDataResult<Receipt> GetById(string id);
-        IDataResult<List<Receipt>> GetByReceiptType(string type);
         IDataResult<List<Receipt>> GetByReceiptId(string receiptNoId);
 
 

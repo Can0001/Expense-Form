@@ -13,7 +13,6 @@ namespace Entities.DTOs
         public string ReceiptNo { get; set; }
         public string TheFirmThatCutsthePlug { get; set; }
         public string Description { get; set; }
-        public string ReceiptTour { get; set; }
         public string VATRate { get; set; }
         public string TotalFisAmount { get; set; }
         public string VATAmount { get; set; }
