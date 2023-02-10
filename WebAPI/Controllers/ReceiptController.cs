@@ -32,9 +32,9 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost("delete")]
-        public IActionResult Delete(Receipt receipt)
+        public IActionResult Delete(string id)
         {
-            var result = _receiptService.Delete(receipt);
+            var result = _receiptService.Delete(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -68,17 +68,6 @@ namespace WebAPI.Controllers
         public IActionResult GetById(string id)
         {
             var result = _receiptService.GetById(id);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
-        [HttpGet("getbyreceipttype")]
-        public IActionResult GetByReceiptType(string type)
-        {
-            var result = _receiptService.GetByReceiptType(type);
             if (result.Success)
             {
                 return Ok(result);

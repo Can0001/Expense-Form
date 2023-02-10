@@ -58,6 +58,6 @@ namespace Business.Constants
         public static string ReportDeleted="Rapor Silindi";
         public static string ReportUpdated="Rapor Silindi";
         public static string ReportListed = "Rapor Listelendi";
-
+        public static string UserPasswordUpdated="Şifre Güncellendi";
     }
 }

@@ -11,6 +11,5 @@ namespace Entities.DTOs
     {
         public string Daterange { get; set; }
         public string Person { get; set; }
-        public string PlugType { get; set; }
     }
 }

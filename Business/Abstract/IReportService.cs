@@ -15,7 +15,6 @@ namespace Business.Abstract
         IResult Update(Report report);
         IDataResult<List<Report>> GetAll();
         IDataResult<Report> GetById(string id);
-        IDataResult<List<Report>> GetByPlugType(string plugType);
         IDataResult<List<Report>> GetByDateRange(string min, string max);
         IDataResult<List<Report>> GetByPerson(string person);
 

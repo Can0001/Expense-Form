@@ -30,8 +30,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.ReceiptAdded);
         }
 
-        public IResult Delete(Receipt receipt)
+        public IResult Delete(string id)
         {
+            var receipt=_receiptDal.Get(r=>r.Id== id);
             _receiptDal.Delete(receipt);
             return new SuccessResult(Messages.ReceiptDeleted);
         }

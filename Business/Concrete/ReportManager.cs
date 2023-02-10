@@ -52,11 +52,6 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Report>>(_reportDaL.GetAll(r=>r.Person== person), Messages.ReportListed);
         }
 
-        public IDataResult<List<Report>> GetByPlugType(string plugType)
-        {
-            return new SuccessDataResult<List<Report>>(_reportDaL.GetAll(r=>r.PlugType== plugType), Messages.ReportListed);
-        }
-
         public IResult Update(Report report)
         {
             throw new NotImplementedException();

@@ -75,17 +75,6 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyplugtype")]
-        public IActionResult GetByPlugType(string plugType)
-        {
-            var result = _reportService.GetByPlugType(plugType);
-            if (result.Success)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result);
-        }
-
         [HttpGet("getbydaterange")]
         public IActionResult GetByDateRange(string min, string max)
         {

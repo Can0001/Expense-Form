@@ -12,7 +12,6 @@ namespace Entities.Concrete
         public string Id { get; set; }
         public string Daterange { get; set; }
         public string Person { get; set; }
-        public string PlugType { get; set; }
 
 
 

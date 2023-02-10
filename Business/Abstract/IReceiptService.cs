@@ -8,7 +8,7 @@ namespace Business.Abstract
     public interface IReceiptService
     {
         IResult Add(Receipt receipt);
-        IResult Delete(Receipt receipt);
+        IResult Delete(string id);
         IResult Update(Receipt receipt);
         IDataResult<List<Receipt>> GetAll();
         IDataResult<List<Receipt>> GetByDate(string min, string max);
