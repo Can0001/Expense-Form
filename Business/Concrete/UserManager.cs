@@ -29,8 +29,9 @@ namespace Business.Concrete
             return new SuccessResult(Messages.UserAdded);
         }
 
-        public IResult Delete(User user)
+        public IResult Delete(string id)
         {
+           var user=_userDal.Get(u=>u.Id== id);
             _userDal.Delete(user);
             return new SuccessResult(Messages.UserDeleted);
         }
@@ -38,6 +39,11 @@ namespace Business.Concrete
         public IDataResult<List<User>> GetAll()
         {
             return new SuccessDataResult<List<User>>(_userDal.GetAll(), Messages.UserListerd);
+        }
+
+        public IDataResult<User> GetByGender(string gender)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Gender == gender), Messages.UserListerd);
         }
 
         public IDataResult<User> GetById(string id)

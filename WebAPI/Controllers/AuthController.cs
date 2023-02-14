@@ -26,6 +26,7 @@ namespace WebAPI.Controllers
             var result = _authService.CreateAccessToken(userToLogin.Data);
             result.Data.UserName = userToLogin.Data.FirstName;
             result.Data.LastName = userToLogin.Data.LastName;
+            result.Data.Email= userToLogin.Data.Email;
             if (result.Success)
             {
                 return Ok(result);

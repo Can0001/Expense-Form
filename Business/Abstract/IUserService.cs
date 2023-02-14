@@ -13,10 +13,11 @@ namespace Business.Abstract
     {
         IResult Add(User user);
         IResult Update(User user);
-        IResult Delete(User user);
+        IResult Delete(string id);
         IDataResult<List<User>> GetAll();
         IDataResult<User> GetById(string id);
         IDataResult<User> GetByMail(string mail);
+        IDataResult<User> GetByGender(string gender);
         IDataResult<List<OperationClaim>> GetClaims(User user);
     }
 }

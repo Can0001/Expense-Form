@@ -47,6 +47,7 @@ namespace Business.Concrete
                 Email = userForRegisterDto.Email,
                 FirstName = userForRegisterDto.FirstName,
                 LastName = userForRegisterDto.LastName,
+                Gender= userForRegisterDto.Gender,
                 PasswordHash = passwordHash,
                 Status = true,
                 PasswordSalt = passwordSalt

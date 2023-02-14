@@ -57,6 +57,30 @@ namespace DataAccess.Concrete.Databases.MongoDB
         public List<EmployeeOperationClaimsEvolved> GetClaims()
         {
             throw new NotImplementedException();
+            /*
+             *             List<OperationClaim> _operationClaims = new List<OperationClaim>();
+            List<EmployeeOperationClaim> _employeeOperationCliams = new List<EmployeeOperationClaim>();
+            List<OperationClaim> _currentUserOperationClaims = new List<OperationClaim>();
+
+            using (var operationCliams=new MongoDB_Context<OperationClaim,MongoDB_OperationClaimsCollection>())
+            {
+                operationCliams.GetMongoDBCollection();
+                _operationClaims = operationCliams.collection.Find<OperationClaim>(document => true).ToList();
+            }
+            using (var operationCliams=new MongoDB_Context<EmployeeOperationClaim,MongoDB_EmployeeOperationClaimsCollection>())
+            {
+                operationCliams.GetMongoDBCollection();
+                _employeeOperationCliams = operationCliams.collection.Find<EmployeeOperationClaim>(document => true).ToList();
+            }
+
+            var employeeOperationClaims = _employeeOperationCliams.Where(e => e.EmployeeId == employee.Id).ToList();
+            foreach (var userOperationCliams in employeeOperationClaims)
+            {
+                _currentUserOperationClaims.Add(_operationClaims.Where(op => op.Id == userOperationCliams.OperationClaimId).FirstOrDefault());
+            }
+            
+            return _currentUserOperationClaims;
+             */
         }
     }
 }

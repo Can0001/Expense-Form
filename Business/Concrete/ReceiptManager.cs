@@ -19,6 +19,7 @@ namespace Business.Concrete
             _receiptDal = receiptDal;
         }
 
+        
         public IResult Add(Receipt receipt)
         {
             //IResult result = BusinessRules.Run(CheckIdReceiptNoExists(receipt.ReceiptNo));
