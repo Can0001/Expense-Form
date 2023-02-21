@@ -1,4 +1,5 @@
 ﻿using Core.Entities;
+using Core.Entities.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,7 @@ namespace Entities.DTOs
         public string Email { get; set; }
         public string Gender { get; set; }
         public bool Status { get; set; }
+
+        public List<OperationClaim> OperationClaims { get; set; }
     }
 }

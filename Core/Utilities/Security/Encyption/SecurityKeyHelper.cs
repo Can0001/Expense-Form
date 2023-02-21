@@ -9,7 +9,7 @@ namespace Core.Utilities.Security.Encyption
 {
     public class SecurityKeyHelper
     {
-        public static SecurityKey CreateSecurityKey(string securityKey)
+        public static SecurityKey CreateSecurityKey(string securityKey)//byte haline çevirip symmetricSecurityKey anahatarına çevirmeye yarıyor simetrik anahtar ahline getirmeye yarıyor
         {
             return new SymmetricSecurityKey(Encoding.UTF8.GetBytes(securityKey));
         }

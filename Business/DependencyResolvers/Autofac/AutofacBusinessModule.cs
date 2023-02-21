@@ -35,6 +35,14 @@ namespace Business.DependencyResolvers.Autofac
             builder.RegisterType<ReportManager>().As<IReportService>().SingleInstance();
             builder.RegisterType<MongoDB_ReportDal>().As<IReportDal>().SingleInstance();
 
+            builder.RegisterType<OperationClaimManager>().As<IOperationClaimService>().SingleInstance();
+            builder.RegisterType<MongoDB_OperationClaimDal>().As<IOperationClaimDal>().SingleInstance();
+
+            builder.RegisterType<UserOperationClaimManager>().As<IUserOperationClaimService>().SingleInstance();
+            builder.RegisterType<MongoDB_UserOperationClaimDal>().As<IUserOperationClaimDal>().SingleInstance();
+
+
+
             
            builder.RegisterType<AuthManager>().As<IAuthService>().SingleInstance();
            builder.RegisterType<JWTHelper<User>>().As<ITokenHelper<User>>();

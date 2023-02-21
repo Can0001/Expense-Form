@@ -18,6 +18,20 @@ namespace Business.Concrete
         {
             _operationClaimDal= operationClaimDal;
         }
+
+        public IResult Add(OperationClaim claim)
+        {
+            _operationClaimDal.Add(claim);
+            return new SuccessResult();
+        }
+
+        public IResult Delete(string id)
+        {
+            var claim = _operationClaimDal.Get(o => o.Id == id);
+            _operationClaimDal.Delete(claim);
+            return new SuccessResult();
+        }
+
         public IDataResult<List<OperationClaim>> GetAll()
         {
             return new SuccessDataResult<List<OperationClaim>>(_operationClaimDal.GetAll(), Messages.Successful);
@@ -26,6 +40,12 @@ namespace Business.Concrete
         public IDataResult<OperationClaim> GetByClaimName(string claimName)
         {
             return new SuccessDataResult<OperationClaim>(_operationClaimDal.Get(o=>o.Name==claimName),Messages.Successful);
+        }
+
+        public IResult Update(OperationClaim claim)
+        {
+            _operationClaimDal.Update(claim);
+            return new SuccessResult();
         }
     }
 }

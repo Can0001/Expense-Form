@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.Entities.Concrete;
 using Entities.Concrete;
 using Entities.DTOs;
 
@@ -11,6 +12,8 @@ namespace WebAPI.Common
             CreateMap<ReceiptsDto, Receipt>();
             CreateMap<VoucherDto, Voucher>();
             CreateMap<ReportDto, Report>();
+            CreateMap<OperationClaimsDto, OperationClaim>();
+            CreateMap<UserOperationClaimDto, UserOperationClaim>();
         }
     }
 }

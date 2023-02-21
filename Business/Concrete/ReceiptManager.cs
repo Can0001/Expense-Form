@@ -1,5 +1,7 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
+using Core.Aspects.Autofac.Caching;
 using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
@@ -37,6 +39,8 @@ namespace Business.Concrete
             _receiptDal.Delete(receipt);
             return new SuccessResult(Messages.ReceiptDeleted);
         }
+
+        [CacheAspect]
 
         public IDataResult<List<Receipt>> GetAll()
         {
